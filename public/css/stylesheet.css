@@ -6,11 +6,21 @@ div#aside {
 	border-right: 1px solid grey;
 }
 
-#searchBar {
+#searchBar
+{
 	border: 1px solid grey;
 	background-color: white;
 }
 
-footer.page-footer {
+div#aside {
+	border-right: 1px solid grey;
+	height: 100%;
+}
 
+div#mainWrapper {
+	margin: 0;
+}
+
+footer.page-footer {
+    margin: 0;
 }

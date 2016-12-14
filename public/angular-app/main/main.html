@@ -1,20 +1,70 @@
-<div class="row">
+<div id="mainWrapper" class="row">
 	<div class="col s4" id="aside">
 		<div class="container">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi mollitia quae, aperiam labore magnam aspernatur impedit minima facere placeat dolor accusantium enim eum consectetur iusto. Voluptate assumenda natus fugit iste!</p>
 		</div>
 	</div>
 
-	<div class="col s8">
+	<div class="col s8" id="section">
 		<div class="container">
+			<div class="row">
 
-		
+				<!--MODAL POUR ECRIRE UN NOUVEAU MESSAGE-->
+				<form class="col s12">
+					<div class="row">
+						<!-- Modal Trigger -->
+						<a class="waves-effect waves-light btn" href="#modal1">Nouveau message</a>
+
+						<!-- Modal Structure -->
+						<div id="modal1" class="modal">
+							<div class="modal-content">
+								<input placeholder="Entrez le titre de votre message" type="text" name="Titre de votre message">
+								<textarea placeholder="Entrez un message" id="icon_prefix2" class="materialize-textarea" class="validate"></textarea>
+							</div>
+							<div class="modal-footer">
+								<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Publier</a>
+							</div>
+						</div>
+					</div>
+				</form>
+
+				<!--MESSAGES DEJA ECRITS-->
+				<form class="col s12">
+					<div class="row">
+						<h2>Titre message</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem consequatur tenetur quam atque, dicta, maiores fugiat earum cum enim ipsa, eaque voluptatum! Aut tempore pariatur quia vero deleniti soluta ipsum!</p>
+						<div class="col s4"><span><a href=""><i class="material-icons">thumb_up</i> J'aime</a></span></div>
+						<div class="col s4"><span><a href="#com"><i class="material-icons">chat_bubble</i> Commenter</a></span></div>
+						<div class="col s4"><span><a href=""><i class="material-icons">trending_flat</i> Partager</a></span></div>
+						<textarea placeholder="Entrez un commentaire" id="com" class="materialize-textarea" class="validate"></textarea>
+					</div>
+				</form>
+
+			</div>
 		</div>
 	</div>
-</div>
 
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.collapsible').collapsible();
+		$('#modal1').modal('open');
+		$('#modal1').modal('close');
+		$('.modal').modal({
+	      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+	      opacity: .5, // Opacity of modal background
+	      in_duration: 300, // Transition in duration
+	      out_duration: 200, // Transition out duration
+	      starting_top: '4%', // Starting top style attribute
+	      ending_top: '10%', // Ending top style attribute
+	      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+	      	console.log(modal, trigger);
+	      },
+	      complete: function() { } // Callback for Modal close
+		  }
+		);
 	});
+
+
+
+
 </script>
