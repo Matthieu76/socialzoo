@@ -1,32 +1,32 @@
-angular.module("zooApp").factory("zoosFactory", zoosFactory);
+angular.module("zooApp").factory("publicationsFactory", publicationsFactory);
 
-function usersFactory($http) {
+function publicationsFactory($http) {
 	return {
-		userGetAll : userGetAll,
-		userAddOne : userAddOne,
-		userGetOne : userGetOne,
-        userDelete : userDelete,
-        userUpdate : userUpdate
+		publicationsGetAll : publicationsGetAll,
+		publicationAddOne : publicationAddOne,
+		publicationGetOne : publicationGetOne,
+        publicationDelete : publicationDelete,
+        publicationUpdate : publicationUpdate
 	};
 
-function userGetAll() {
-	return $http.get("/api/users").then(complete).catch(error);
+function publicationsGetAll() {
+	return $http.get("/api/publications").then(complete).catch(error);
 }
 
-function userAddOne(postData) {
-	return $http.post("/api/users/add", postData).then(complete).catch(error);
+function publicationAddOne(postData) {
+	return $http.post("/api/publications/add", postData).then(complete).catch(error);
 }
 
-function userDelete(id) {
-	return $http.delete('/api/users/' +id).then(complete).catch(error);
+function publicationDelete(id) {
+	return $http.delete('/api/publications/' +id).then(complete).catch(error);
 }
 
-function userGetOne(id) {
-	return $http.get('/api/users/' +id).then(complete).catch(error);
+function publicationGetOne(id) {
+	return $http.get('/api/publications/' +id).then(complete).catch(error);
 }
 
-function userUpdate(id, user) {
-	return $http.put('/api/users/update/' +id, user).then(complete).catch(error);
+function publicationUpdate(id, publication) {
+	return $http.put('/api/publications/update/' +id, publication).then(complete).catch(error);
 }
 
 function complete(response) {
