@@ -1,47 +1,22 @@
 var mongoose = require('mongoose');
 
-var User = new mongoose.Schema({
-  username   : {
-    type     : String,
-    unique   : true,
-    required : true
-  },
-  password   : {
+var Zoo = new mongoose.Schema({
+  zooName : {
     type     : String,
     required : true
   },
-  firstName  : {
+  zooDescription : {
+    type     : String,
+    required : true
+  },
+  zooLocation : {
     type     : String,
     required : false
   },
-  lastName   : {
-    type     : String,
-    required : false
-  },
-  email      : {
-    type     : String,
-    required : false
-  },
-  profile    : {
-    type     : String,
-    required : false
-  },
-  field      : {
-    type     : String,
-    required : false
-  },
-  creatorID  : {
-    type     : String,
-    required : false
-  },
-  date       : {
-    type     : String,
-    required : false
-  },
-  deleted    : {
-    type     : Boolean,
-    required : false
+  zooLikes : {
+  	type     : Number,
+  	required : false
   }
 });
 
-mongoose.model('User', User);
+mongoose.model('Zoo', Zoo);
