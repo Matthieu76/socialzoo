@@ -1,101 +1,31 @@
 var mongoose = require('mongoose');
 
-var User     = mongoose.model('User');
+var Publication = mongoose.model('Publication');
 var bcrypt   = require('bcrypt-nodejs');
 var jwt      = require('jsonwebtoken');
 
-module.exports.register = function(req, res) { console.log("##REGISTER##");
-  console.log('registering user');
 
-  var username = req.body.username;
-  var name     = req.body.name || null;
-  var password = req.body.password;
+module.exports.publicationsGetAll = function(req, res) {
 
-  User.create({
-    username : username,
-    name     : name,
-    password : bcrypt.hashSync(password, bcrypt.genSaltSync(10))
-  }, function(err, user) {
-    if(err) {
-      console.log(err);
-      res.status(400).json(err);
-    } else {
-      console.log('user created', user);
-      res.status(201).json(user);
-    }
-  });
-};
-
-module.exports.login = function(req, res) { console.log("##LOGIN##");
-  console.log('logging in user');
-  var username = req.body.username;
-  var password = req.body.password;
-  console.log('###', username, password);
-
-  User.findOne({
-    username: username
-  }).exec(function(err, user) {
-    if(err) {
-      console.log(err);
-      res.status(400).json(err);
-    } else {
-      if(bcrypt.compareSync(password, user.password)) {
-        console.log('User found', user);
-
-        // ####################################################
-        // !!! mettre la "phrase secrète" en variable d'environnement
-        // pour ne pas qu'elle soit visible dans le code
-        // et ne pas avoir à la retaper à chaque fois
-        // ####################################################
-
-        var token = jwt.sign({ username: user.username }, 's3cr3t', { expiresIn: 3600 });
-        res.status(200).json({success: true, token: token});
-      } else {
-        res.status(401).json('Unauthorized');
-      }
-    }
-  });
-};
-
-module.exports.authentificate = function(req, res, next) {
-  var headerExists = req.headers.authorization;
-  if(headerExists) {
-    var token = req.headers.authorization.split(' ')[1];
-    jwt.verify(token, 's3cr3t', function(error, decoded){
-      if(error) {
-        console.log(error);
-        res.status(401).json('Unauthorized');
-      } else {
-        req.user = decoded.username;
-        next();
-      }
-    });
-  } else {
-    res.status(403).json('No token provided');
-  }
-};
-
-module.exports.userGetAll = function(req, res) {
-
-	User
+	Publication
 	  .find() // prend tout
-	  .exec(function(err, user) {
+	  .exec(function(err, publication) {
 	  	if(err) {
-	  		console.log("Impossible de récupérer les utilisateurs");
+	  		console.log("Impossible de récupérer les publications");
 	  		res
 	  		  .status(500)
 	  		  .json(err);
 	  	} else {
 	  		res
-	  		  .json(user);
+	  		  .json(publication);
 	  	}
 	  });
 };
 
-module.exports.userGetOne = function(req, res) {
-	var id = req.params.userId;
+module.exports.publicationGetOne = function(req, res) {
+	var id = req.params.publicationId;
 
-	User
+	Publication
 	  .findById(id)
 	  .exec(function(err, doc) {
 	  	var response = {
@@ -108,7 +38,7 @@ module.exports.userGetOne = function(req, res) {
 	  	} else if(!doc) {
 	  		response.status = 404;
 	  		response.message = {
-	  			"message" : "User ID not found " + id
+	  			"message" : "Publication ID not found " + id
 	  		};
 	  	}
 	  	res
@@ -117,23 +47,20 @@ module.exports.userGetOne = function(req, res) {
 	  });
 };
 
-module.exports.userAddOne = function(req, res) {
+module.exports.publicationAddOne = function(req, res) {
 
  // var password = req.body.password;
 
-	User
+	Publication
 	  .create({
-	  	username  : req.body.username,
-	  	firstName : req.body.firstName,
-	  	lastName  : req.body.lastName,
-	  	email     : req.body.email,
-	  	password  : req.body.password,
+	  	titreNouveauMessage : req.body.titreNouveauMessage,
+	  	nouveauMessage 		: req.body.nouveauMessage,
+	  	lastName  			: req.body.lastName,
+	  	titrePublication    : req.body.titrePublication,
+	  	textePublication  	: req.body.textePublication,
       // password : bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-	  	profile   : req.body.profile,
-	  	field     : req.body.field,
-	  	creatorID : req.body.creatorID,
-	  	date      : req.body.date,
-	  	deleted   : req.body.deleted
+	  	pouceLeveJaime   	: req.body.pouceLeveJaime,
+	  	nouveauCommentaire  : req.body.nouveauCommentaire
       }, function (err, response){
 	  if (err){
 	    res
@@ -147,10 +74,10 @@ module.exports.userAddOne = function(req, res) {
       });
 };
 
-module.exports.userDelete = function(req, res) {
-	var id = req.params.userId;
+module.exports.publicationDelete = function(req, res) {
+	var id = req.params.publicationId;
 
-	User
+	Publication
 	  .findById(id)
 	  .remove()
 	  .exec(function(err) {
@@ -162,43 +89,40 @@ module.exports.userDelete = function(req, res) {
 	  });
 };
 
-module.exports.userUpdate = function(req, res) {
-	var id = req.params.userId;
+module.exports.publicationUpdate = function(req, res) {
+	var id = req.params.publicationId;
 
-	console.log('GET userId', id);
+	console.log('GET publicationId', id);
 
-	User
+	Publication
 	  .findById(id)
-	  .exec(function(err, user) {
+	  .exec(function(err, publication) {
 	  	if(err) {
-	  		console.log("Error finding user");
+	  		console.log("Error finding publication");
 	  		res
 	  		  .status(500)
 	  		  .json(err);
 	  		  return;
-	  	} else if(!user) {
-	  		console.log("UserId not found in database", id);
+	  	} else if(!publication) {
+	  		console.log("PublicationId not found in database", id);
 	  		res
 	  		  .status(404)
 	  		  .lson({
-	  		  	"message" : "User ID not found " + id
+	  		  	"message" : "Publication ID not found " + id
 	  		  });
 	  		  return;
 	  	}
 
-	  	user.username  = req.body.username;
-	  	user.firstName = req.body.firstName;
-	  	user.lastName  = req.body.lastName;
-	  	user.email     = req.body.email;
-	  	user.password  = req.body.password;
-	  	user.profile   = req.body.profile;
-	  	user.field     = req.body.field;
-	  	user.creatorID = req.body.creatorID;
-	  	user.date      = req.body.date;
-	  	user.deleted   = req.body.deleted;
+	  	publication.titreNouveauMessage = req.body.titreNouveauMessage;
+	  	publication.nouveauMessage 		= req.body.nouveauMessage;
+	  	publication.titrePublication 	= req.body.titrePublication;
+	  	publication.textePublication    = req.body.textePublication;
+	  	publication.password  			= req.body.password;
+	  	publication.pouceLeveJaime   	= req.body.pouceLeveJaime;
+	  	publication.nouveauCommentaire  = req.body.nouveauCommentaire;
 
-	  	user
-	  	  .save(function(err, userUpdate) {
+	  	publication
+	  	  .save(function(err, publicationUpdate) {
 	  	  	if(err) {
 	  	  		res
 	  	  		  .status(500)

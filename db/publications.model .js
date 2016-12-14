@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var User = new mongoose.Schema({
+var Publication = new mongoose.Schema({
   titreNouveauMessage   : {
     type     : String,
     required : true
@@ -27,4 +27,4 @@ var User = new mongoose.Schema({
   }
 });
 
-mongoose.model('User', User);
+mongoose.model('Publication', Publication);
