@@ -1,27 +1,28 @@
 var mongoose = require('mongoose');
 var Publication = mongoose.model('Publication');
 
-module.exports.publicationGetAll = function(req, res) {
 
-	User
+module.exports.publicationsGetAll = function(req, res) {
+
+	Publication
 	  .find() // prend tout
-	  .exec(function(err, user) {
+	  .exec(function(err, publication) {
 	  	if(err) {
-	  		console.log("Impossible de récupérer les utilisateurs");
+	  		console.log("Impossible de récupérer les publications");
 	  		res
 	  		  .status(500)
 	  		  .json(err);
 	  	} else {
 	  		res
-	  		  .json(user);
+	  		  .json(publication);
 	  	}
 	  });
 };
 
-module.exports.userGetOne = function(req, res) {
-	var id = req.params.userId;
+module.exports.publicationGetOne = function(req, res) {
+	var id = req.params.publicationId;
 
-	User
+	Publication
 	  .findById(id)
 	  .exec(function(err, doc) {
 	  	var response = {
@@ -34,7 +35,7 @@ module.exports.userGetOne = function(req, res) {
 	  	} else if(!doc) {
 	  		response.status = 404;
 	  		response.message = {
-	  			"message" : "User ID not found " + id
+	  			"message" : "Publication ID not found " + id
 	  		};
 	  	}
 	  	res
@@ -43,23 +44,20 @@ module.exports.userGetOne = function(req, res) {
 	  });
 };
 
-module.exports.userAddOne = function(req, res) {
+module.exports.publicationAddOne = function(req, res) {
 
  // var password = req.body.password;
 
-	User
+	Publication
 	  .create({
-	  	username  : req.body.username,
-	  	firstName : req.body.firstName,
-	  	lastName  : req.body.lastName,
-	  	email     : req.body.email,
-	  	password  : req.body.password,
+	  	titreNouveauMessage : req.body.titreNouveauMessage,
+	  	nouveauMessage 		: req.body.nouveauMessage,
+	  	lastName  			: req.body.lastName,
+	  	titrePublication    : req.body.titrePublication,
+	  	textePublication  	: req.body.textePublication,
       // password : bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-	  	profile   : req.body.profile,
-	  	field     : req.body.field,
-	  	creatorID : req.body.creatorID,
-	  	date      : req.body.date,
-	  	deleted   : req.body.deleted
+	  	pouceLeveJaime   	: req.body.pouceLeveJaime,
+	  	nouveauCommentaire  : req.body.nouveauCommentaire
       }, function (err, response){
 	  if (err){
 	    res
@@ -73,10 +71,10 @@ module.exports.userAddOne = function(req, res) {
       });
 };
 
-module.exports.userDelete = function(req, res) {
-	var id = req.params.userId;
+module.exports.publicationDelete = function(req, res) {
+	var id = req.params.publicationId;
 
-	User
+	Publication
 	  .findById(id)
 	  .remove()
 	  .exec(function(err) {
@@ -88,43 +86,40 @@ module.exports.userDelete = function(req, res) {
 	  });
 };
 
-module.exports.userUpdate = function(req, res) {
-	var id = req.params.userId;
+module.exports.publicationUpdate = function(req, res) {
+	var id = req.params.publicationId;
 
-	console.log('GET userId', id);
+	console.log('GET publicationId', id);
 
-	User
+	Publication
 	  .findById(id)
-	  .exec(function(err, user) {
+	  .exec(function(err, publication) {
 	  	if(err) {
-	  		console.log("Error finding user");
+	  		console.log("Error finding publication");
 	  		res
 	  		  .status(500)
 	  		  .json(err);
 	  		  return;
-	  	} else if(!user) {
-	  		console.log("UserId not found in database", id);
+	  	} else if(!publication) {
+	  		console.log("PublicationId not found in database", id);
 	  		res
 	  		  .status(404)
 	  		  .lson({
-	  		  	"message" : "User ID not found " + id
+	  		  	"message" : "Publication ID not found " + id
 	  		  });
 	  		  return;
 	  	}
 
-	  	user.username  = req.body.username;
-	  	user.firstName = req.body.firstName;
-	  	user.lastName  = req.body.lastName;
-	  	user.email     = req.body.email;
-	  	user.password  = req.body.password;
-	  	user.profile   = req.body.profile;
-	  	user.field     = req.body.field;
-	  	user.creatorID = req.body.creatorID;
-	  	user.date      = req.body.date;
-	  	user.deleted   = req.body.deleted;
+	  	publication.titreNouveauMessage = req.body.titreNouveauMessage;
+	  	publication.nouveauMessage 		= req.body.nouveauMessage;
+	  	publication.titrePublication 	= req.body.titrePublication;
+	  	publication.textePublication    = req.body.textePublication;
+	  	publication.password  			= req.body.password;
+	  	publication.pouceLeveJaime   	= req.body.pouceLeveJaime;
+	  	publication.nouveauCommentaire  = req.body.nouveauCommentaire;
 
-	  	user
-	  	  .save(function(err, userUpdate) {
+	  	publication
+	  	  .save(function(err, publicationUpdate) {
 	  	  	if(err) {
 	  	  		res
 	  	  		  .status(500)

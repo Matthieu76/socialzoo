@@ -14,6 +14,6 @@ router
 
 router
   .route('/ressources')
-  .get(ctrlPublications.publicationGetAll);
+  .get(ctrlPublications.publicationsGetAll);
 
 module.exports = router;
