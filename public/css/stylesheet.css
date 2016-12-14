@@ -2,9 +2,16 @@ input#search {
 	height: 64px;
 }
 
+div#aside {
+	border-right: 1px solid grey;
+}
 
 #searchBar
 {
 	border: 1px solid grey;
 	background-color: white;
+}
+
+footer.page-footer {
+
 }
