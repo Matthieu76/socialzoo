@@ -1,0 +1,30 @@
+{
+  "name": "socialzoo",
+  "version": "1.0.0",
+  "description": "reseau social pour zoo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matthieu76/socialzoo.git"
+  },
+  "keywords": [
+    "zoos",
+    "social",
+    "reseau"
+  ],
+  "author": "matthieu et marc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matthieu76/socialzoo/issues"
+  },
+  "homepage": "https://github.com/Matthieu76/socialzoo#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.2",
+    "path": "^0.12.7"
+  }
+}
