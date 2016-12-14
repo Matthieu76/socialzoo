@@ -9,8 +9,8 @@ input#search {
 }
 
 div#aside {
-	border-right: 1px solid grey;
 	height: 100%;
+	background-color: #fafafa;
 }
 
 div#mainWrapper {
@@ -19,4 +19,13 @@ div#mainWrapper {
 
 footer.page-footer {
     margin: 0;
+}
+
+div.littleContainer {
+	width: 90%;
+	margin: auto;
+}
+
+span.annuaireTitle {
+	font-size: 1.5rem;
 }
