@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var app = require('zooApp');
 var Publication = mongoose.model('Publication');
 
 
@@ -133,3 +134,6 @@ module.exports.publicationUpdate = function(req, res) {
 	  });
 
 };
+
+
+

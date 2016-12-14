@@ -96,12 +96,12 @@
 
 				<!--MESSAGES DEJA ECRITS-->
 				<form class="col s12">
-					<div class="row">
-						<h2>Titre publication</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem consequatur tenetur quam atque, dicta, maiores fugiat earum cum enim ipsa, eaque voluptatum! Aut tempore pariatur quia vero deleniti soluta ipsum!</p><br>
+					<div class="row" ng-repeat="publication in servPublications">
+						<h2>{{publication.titre}}</h2>
+						<p>{{publication.description}}}</p><br>
 						<div class="col s6"><span><a href=""><i class="material-icons">thumb_up</i> J'aime</a></span></div>
-						<div class="col s6"><span><a href="#com"><i class="material-icons">chat_bubble</i> Commenter</a></span></div>
-						<textarea placeholder="Entrez un commentaire" id="com" class="materialize-textarea" class="validate"></textarea>
+						<div class="col s6"><span><a href=""><i class="material-icons">chat_bubble</i> Commenter</a></span></div>
+						<textarea placeholder="Entrez un commentaire" id="icon_prefix2" class="materialize-textarea" class="validate"></textarea>
 					</div>
 				</form>
 
@@ -131,7 +131,9 @@
 		);
 	});
 
-
-
-
 </script>
+
+
+
+
+
