@@ -1,9 +1,5 @@
 var mongoose = require('mongoose');
-
 var Publication = mongoose.model('Publication');
-var bcrypt   = require('bcrypt-nodejs');
-var jwt      = require('jsonwebtoken');
-
 
 module.exports.publicationsGetAll = function(req, res) {
 
