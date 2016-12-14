@@ -2,9 +2,18 @@ input#search {
 	height: 64px;
 }
 
-
-#searchBar
-{
+#searchBar {
 	border: 1px solid grey;
 	background-color: white;
+}
+
+
+header, main, footer {
+	padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
 }
