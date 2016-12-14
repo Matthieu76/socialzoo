@@ -1,6 +1,6 @@
 angular.module("zooApp").factory("zoosFactory", zoosFactory);
 
-function usersFactory($http) {
+function zoosFactory($http) {
 	return {
 		zooGetAll : zooGetAll,
 		zooAddOne : zooAddOne,
@@ -10,11 +10,11 @@ function usersFactory($http) {
 	};
 
 function zooGetAll() {
-	return $http.get("/api/zoos").then(complete).catch(error);
+	return $http.get("/api/").then(complete).catch(error);
 }
 
 function zooAddOne(postData) {
-	return $http.post("/api/zoos/add", postData).then(complete).catch(error);
+	return $http.post("/api/newzoo", postData).then(complete).catch(error);
 }
 
 function zooDelete(id) {
