@@ -1,45 +1,28 @@
 var mongoose = require('mongoose');
 
 var User = new mongoose.Schema({
-  username   : {
-    type     : String,
-    unique   : true,
-    required : true
-  },
-  password   : {
+  titreNouveauMessage   : {
     type     : String,
     required : true
   },
-  firstName  : {
+  nouveauMessage   : {
+    type     : String,
+    required : true
+  },
+  titrePublication  : {
     type     : String,
     required : false
   },
-  lastName   : {
+  textePublication   : {
     type     : String,
     required : false
   },
-  email      : {
-    type     : String,
+  pouceLeveJaime      : {
+    type     : Number,
     required : false
   },
-  profile    : {
+  nouveauCommentaire      : {
     type     : String,
-    required : false
-  },
-  field      : {
-    type     : String,
-    required : false
-  },
-  creatorID  : {
-    type     : String,
-    required : false
-  },
-  date       : {
-    type     : String,
-    required : false
-  },
-  deleted    : {
-    type     : Boolean,
     required : false
   }
 });
