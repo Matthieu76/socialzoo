@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" ng-app="zooApp">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SocialZoo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 </head>
 <body>
 
-
-
-
-
-
-
-
-
-
+    <header header></header>
+    <main ng-view></main>
+    <footer footer></footer>
 
 
 
@@ -33,7 +28,11 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/i18n/angular-locale_fr-fr.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/oclazyload/1.0.9/ocLazyLoad.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="angular-app/app.js"></script>
+    <!-- DIRECTIVE -->
+    <script type="text/javascript" src="angular-app/common/headerDirective.js"></script>
+    <script type="text/javascript" src="angular-app/common/footerDirective.js"></script>
+
 </body>
 </html>
 
