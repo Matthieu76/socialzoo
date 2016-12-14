@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Zoo     = mongoose.model('Zoo');
+var Zoo = mongoose.model('Zoo');
 
 module.exports.zooGetAll = function(req, res) {
 
