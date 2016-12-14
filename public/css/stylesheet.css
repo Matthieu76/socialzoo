@@ -1,3 +1,8 @@
+input#search {
+	height: 64px;
+}
+
+
 #searchBar
 {
 	border: 1px solid grey;
