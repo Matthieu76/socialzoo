@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="row">
+        <p><a href="#/" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Retour</a></p>
+    </div>
+    <form name="za.zooForm" ng-submit="za.addZoo()">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="zooName" type="text" class="validate" ng-model="za.zooName" required>
+                <label for="zooName">Nom du Zoo</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="zooDescription" type="text" class="validate" ng-model="za.zooDescription" required>
+                <label for="zooDescription">Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="zooLocation" type="text" class="validate" ng-model="za.zooLocation" required>
+                <label for="zooLocation">Adresse</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="zooLikes" type="text" class="validate" ng-model="za.zooLikes" required>
+                <label for="zooLikes">Likes</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light right" type="submit">Publier<i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -10,6 +10,10 @@ router
   .route('/')
   .get(ctrlZoos.zooGetAll);
 
+router
+  .route('/newzoo')
+  .get(ctrlZoos.zooAddOne);
+
 // Publications routes
 
 router

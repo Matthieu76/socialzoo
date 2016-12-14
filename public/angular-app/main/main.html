@@ -7,10 +7,21 @@
             <div class="section center">
                 <div class="row">
                     <h5>Annuaire des Zoos</h5><br/>
-                    <a class="waves-effect waves-light btn">
+                    <a href="#newzoo" class="waves-effect waves-light btn">
                     <i class="material-icons left">note_add</i>Créez votre page</a>
                 </div>
             </div>
+
+            <ul class="collection" ng-repeat="zoo in zoos">
+                <li class="collection-item avatar">
+                    <i class="material-icons circle red">pets</i>
+                    <span class="title">{{zoo.zooName}}</span>
+                    <p>{{zoo.zooLocation}}<br>
+                    <a><i class="material-icons tiny">favorite</i></a> {{zoo.zooLikes}}
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="material-icons">launch</i></a>
+                </li>
+            </ul>
             
             <ul class="collection">
                 <li class="collection-item avatar">
