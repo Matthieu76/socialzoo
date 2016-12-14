@@ -1,101 +1,27 @@
 var mongoose = require('mongoose');
+var Zoo     = mongoose.model('Zoo');
 
-var User     = mongoose.model('User');
-var bcrypt   = require('bcrypt-nodejs');
-var jwt      = require('jsonwebtoken');
+module.exports.zooGetAll = function(req, res) {
 
-module.exports.register = function(req, res) { console.log("##REGISTER##");
-  console.log('registering user');
-
-  var username = req.body.username;
-  var name     = req.body.name || null;
-  var password = req.body.password;
-
-  User.create({
-    username : username,
-    name     : name,
-    password : bcrypt.hashSync(password, bcrypt.genSaltSync(10))
-  }, function(err, user) {
-    if(err) {
-      console.log(err);
-      res.status(400).json(err);
-    } else {
-      console.log('user created', user);
-      res.status(201).json(user);
-    }
-  });
-};
-
-module.exports.login = function(req, res) { console.log("##LOGIN##");
-  console.log('logging in user');
-  var username = req.body.username;
-  var password = req.body.password;
-  console.log('###', username, password);
-
-  User.findOne({
-    username: username
-  }).exec(function(err, user) {
-    if(err) {
-      console.log(err);
-      res.status(400).json(err);
-    } else {
-      if(bcrypt.compareSync(password, user.password)) {
-        console.log('User found', user);
-
-        // ####################################################
-        // !!! mettre la "phrase secrète" en variable d'environnement
-        // pour ne pas qu'elle soit visible dans le code
-        // et ne pas avoir à la retaper à chaque fois
-        // ####################################################
-
-        var token = jwt.sign({ username: user.username }, 's3cr3t', { expiresIn: 3600 });
-        res.status(200).json({success: true, token: token});
-      } else {
-        res.status(401).json('Unauthorized');
-      }
-    }
-  });
-};
-
-module.exports.authentificate = function(req, res, next) {
-  var headerExists = req.headers.authorization;
-  if(headerExists) {
-    var token = req.headers.authorization.split(' ')[1];
-    jwt.verify(token, 's3cr3t', function(error, decoded){
-      if(error) {
-        console.log(error);
-        res.status(401).json('Unauthorized');
-      } else {
-        req.user = decoded.username;
-        next();
-      }
-    });
-  } else {
-    res.status(403).json('No token provided');
-  }
-};
-
-module.exports.userGetAll = function(req, res) {
-
-	User
+	Zoo
 	  .find() // prend tout
-	  .exec(function(err, user) {
+	  .exec(function(err, zoo) {
 	  	if(err) {
-	  		console.log("Impossible de récupérer les utilisateurs");
+	  		console.log("Impossible de récupérer les zoos");
 	  		res
 	  		  .status(500)
 	  		  .json(err);
 	  	} else {
 	  		res
-	  		  .json(user);
+	  		  .json(zoo);
 	  	}
 	  });
 };
 
-module.exports.userGetOne = function(req, res) {
-	var id = req.params.userId;
+module.exports.zooGetOne = function(req, res) {
+	var id = req.params.zooId;
 
-	User
+	Zoo
 	  .findById(id)
 	  .exec(function(err, doc) {
 	  	var response = {
@@ -108,7 +34,7 @@ module.exports.userGetOne = function(req, res) {
 	  	} else if(!doc) {
 	  		response.status = 404;
 	  		response.message = {
-	  			"message" : "User ID not found " + id
+	  			"message" : "Zoo ID not found " + id
 	  		};
 	  	}
 	  	res
@@ -117,23 +43,14 @@ module.exports.userGetOne = function(req, res) {
 	  });
 };
 
-module.exports.userAddOne = function(req, res) {
+module.exports.zooAddOne = function(req, res) {
 
- // var password = req.body.password;
-
-	User
+	Zoo
 	  .create({
-	  	username  : req.body.username,
-	  	firstName : req.body.firstName,
-	  	lastName  : req.body.lastName,
-	  	email     : req.body.email,
-	  	password  : req.body.password,
-      // password : bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-	  	profile   : req.body.profile,
-	  	field     : req.body.field,
-	  	creatorID : req.body.creatorID,
-	  	date      : req.body.date,
-	  	deleted   : req.body.deleted
+	  	zooName        : req.body.zooName,
+	  	zooDescription : req.body.zooDescription,
+	  	zooLocation    : req.body.zooLocation,
+	  	zooLikes       : req.body.zooLikes
       }, function (err, response){
 	  if (err){
 	    res
@@ -147,10 +64,10 @@ module.exports.userAddOne = function(req, res) {
       });
 };
 
-module.exports.userDelete = function(req, res) {
-	var id = req.params.userId;
+module.exports.zooDelete = function(req, res) {
+	var id = req.params.zooId;
 
-	User
+	Zoo
 	  .findById(id)
 	  .remove()
 	  .exec(function(err) {
@@ -162,43 +79,37 @@ module.exports.userDelete = function(req, res) {
 	  });
 };
 
-module.exports.userUpdate = function(req, res) {
-	var id = req.params.userId;
+module.exports.zooUpdate = function(req, res) {
+	var id = req.params.zooId;
 
-	console.log('GET userId', id);
+	console.log('GET zooId', id);
 
-	User
+	Zoo
 	  .findById(id)
-	  .exec(function(err, user) {
+	  .exec(function(err, zoo) {
 	  	if(err) {
-	  		console.log("Error finding user");
+	  		console.log("Error finding zoo");
 	  		res
 	  		  .status(500)
 	  		  .json(err);
 	  		  return;
-	  	} else if(!user) {
-	  		console.log("UserId not found in database", id);
+	  	} else if(!zoo) {
+	  		console.log("ZooId not found in database", id);
 	  		res
 	  		  .status(404)
 	  		  .lson({
-	  		  	"message" : "User ID not found " + id
+	  		  	"message" : "Zoo ID not found " + id
 	  		  });
 	  		  return;
 	  	}
 
-	  	user.username  = req.body.username;
-	  	user.firstName = req.body.firstName;
-	  	user.lastName  = req.body.lastName;
-	  	user.email     = req.body.email;
-	  	user.password  = req.body.password;
-	  	user.profile   = req.body.profile;
-	  	user.field     = req.body.field;
-	  	user.creatorID = req.body.creatorID;
-	  	user.date      = req.body.date;
-	  	user.deleted   = req.body.deleted;
+	  	zoo.zooName        = req.body.zooName;
+	  	zoo.zooDescription = req.body.zooDescription;
+	  	zoo.zooLocation    = req.body.zooLocation;
+	  	zoo.zooLikes       = req.body.zooLikes;
 
-	  	user
-	  	  .save(function(err, userUpdate) {
+	  	zoo
+	  	  .save(function(err, zooUpdate) {
 	  	  	if(err) {
 	  	  		res
 	  	  		  .status(500)
