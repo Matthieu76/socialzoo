@@ -31,7 +31,7 @@ function config($routeProvider) {
     access       : { restricted: false }*/
   })
   .otherwise({
-    redirectTo   :'/'
+    redirectTo   : '/'
   });
 }
 
