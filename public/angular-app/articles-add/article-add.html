@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="row center-align">
+        <p><a href="#/" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Retour</a></p>
+    </div>
+
+    <form name="aa.articleForm" ng-submit="aa.addArticle()">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="articleTitle" type="text" class="validate" ng-model="aa.articleTitle" required>
+                <label for="articleTitle">Titre de l'article</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="articleText" type="text" class="validate" ng-model="aa.articleText" required>
+                <label for="articleText">Contenu de l'article</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light right" type="submit" name="action">Créer<i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

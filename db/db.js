@@ -46,4 +46,4 @@ process.on('SIGTERM', function() {
 
 // BRING IN YOUR SCHEMAS & MODELS
 require('./zoos.model');
-require('./publications.model');
+require('./articles.model');
