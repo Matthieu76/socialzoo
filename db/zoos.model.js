@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 var Zoo = new mongoose.Schema({
   zooName : {
     type     : String,
-    required : true
+    required : false
   },
   zooDescription : {
     type     : String,
-    required : true
+    required : false
   },
   zooLocation : {
     type     : String,
