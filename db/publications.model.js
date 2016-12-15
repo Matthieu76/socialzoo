@@ -1,14 +1,6 @@
 var mongoose = require('mongoose');
 
 var Publication = new mongoose.Schema({
-  titreNouveauMessage   : {
-    type     : String,
-    required : true
-  },
-  nouveauMessage   : {
-    type     : String,
-    required : true
-  },
   titrePublication  : {
     type     : String,
     required : false
@@ -17,9 +9,25 @@ var Publication = new mongoose.Schema({
     type     : String,
     required : false
   },
+  nbLikes      : {
+    type     : Number,
+    required : false
+  },
+  listeCommentaires      : {
+    type     : String,
+    required : false
+  },
   pouceLeveJaime      : {
     type     : Number,
     required : false
+  },
+  titreNouveauMessage   : {
+    type     : String,
+    required : true
+  },
+  nouveauMessage   : {
+    type     : String,
+    required : true
   },
   nouveauCommentaire      : {
     type     : String,

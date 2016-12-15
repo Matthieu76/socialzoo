@@ -17,7 +17,13 @@ router
 // Publications routes
 
 router
-  .route('/ressources')
+  .route('/')
   .get(ctrlPublications.publicationsGetAll);
 
+router
+  .route('/newpublication')
+  .post(ctrlPublications.publicationAddOne);
+
 module.exports = router;
+
+

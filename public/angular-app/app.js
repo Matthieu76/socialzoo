@@ -4,9 +4,9 @@ function config($routeProvider) {
 
   $routeProvider
   .when('/', {
-    templateUrl  : 'angular-app/main/main.html',
-    controller   : zooListController,
-    controllerAs : 'zl'
+    templateUrl  : 'angular-app/main/main.html'/*,
+    controller   : mainController,
+    controllerAs : 'zl'*/
   })
   .when('/newzoo', {
     templateUrl  : 'angular-app/zoos-add/zoo-add.html',
@@ -17,6 +17,11 @@ function config($routeProvider) {
     templateUrl  : 'angular-app/zoos-display/zoo-display.html'/*,
     controller   : zooAddController,
     controllerAs : 'za',*/
+  })
+  .when('/newpublication', {
+    templateUrl  : 'angular-app/publication-add/publication-add.html',
+    controller   : publicationAddController,
+    controllerAs : 'puba',
   })
   .when('/public', {
     templateUrl  : 'angular-app/main/main.html'/*,

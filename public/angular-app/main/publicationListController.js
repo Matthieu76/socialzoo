@@ -2,13 +2,13 @@ angular.module('zooApp').controller('publicationListController', publicationList
 
 function publicationListController(publicationsFactory, $scope) {
   var publ = this;
-  publ.zoos = null;
+  publ.publications = null;
 
   // recherche
   $scope.recherche = '';
   // fin recherche
 
   publicationsFactory.publicationsGetAll().then(function(response) {
-    publ.zoos = response.data;
+    publ.publications = response.data;
   });
 }

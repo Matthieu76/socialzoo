@@ -1,6 +1,6 @@
 <div id="mainWrapper" class="row">
 
-    <div class="col s4 z-depth-2" id="aside">
+    <div class="col s4 z-depth-2" id="aside" ng-controller="zooListController as zl">
 
         <div class="littleContainer">
 
@@ -82,7 +82,7 @@
 
     </div>
 
-	<div class="col s8" id="section">
+	<div class="col s8" id="section" ng-controller="publicationListController as publ">
 		<div class="container">
 			<div class="row">
 
@@ -107,15 +107,14 @@
 
 				<!--MESSAGES DEJA ECRITS-->
 				<form class="col s12">
-					<div class="row" ng-repeat="publication in servPublications">
-						<h2>{{publication.titre}}</h2>
-						<p>{{publication.description}}}</p><br>
-						<div class="col s6"><span><a href=""><i class="material-icons">thumb_up</i> J'aime</a></span></div>
-						<div class="col s6"><span><a href=""><i class="material-icons">chat_bubble</i> Commenter</a></span></div>
+					<div class="row" ng-repeat="publication in publ.publications">
+						<h2>{{publication.titrePublication}}</h2>
+						<p>{{publication.textePublication}}}</p><br>
+						<div class="col s6"><span><a href=""><i class="material-icons">thumb_up</i>{{publication.nbLikes}}</a></span></div>
+						<div class="col s6"><span><a href=""><i class="material-icons">chat_bubble</i>{{publication.listeCommentaires}}</a></span></div>
 						<textarea placeholder="Entrez un commentaire" id="icon_prefix2" class="materialize-textarea" class="validate"></textarea>
 					</div>
 				</form>
-
 			</div>
 		</div>
 	</div>
@@ -143,8 +142,5 @@
 	});
 
 </script>
-
-
-
 
 
