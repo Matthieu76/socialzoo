@@ -7,6 +7,8 @@ function articleAddController($location, articlesFactory) {
 
   aa.addArticle = function() {
 
+    console.log("Ok");
+
     var postData = {
       articleTitle : aa.articleTitle,
       articleText  : aa.articleText

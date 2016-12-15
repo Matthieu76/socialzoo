@@ -10,7 +10,7 @@ function articlesFactory($http) {
 	};
 
 function articleGetAll() {
-	return $http.get("/api").then(complete).catch(error);
+	return $http.get("/api/articles").then(complete).catch(error);
 }
 
 function articleAddOne(postData) {

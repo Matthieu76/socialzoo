@@ -7,8 +7,12 @@ var ctrlArticles = require('../controllers/articles.controller.js');
 // Zoos routes
 
 router
-  .route('/')
-  .get(ctrlZoos.zooGetAll, ctrlArticles.articleGetAll);
+  .route('/zoo')
+  .get(ctrlZoos.zooGetAll);
+
+router
+	.route('/articles')
+	.get(ctrlArticles.articleGetAll);
 
 router
   .route('/newzoo')
