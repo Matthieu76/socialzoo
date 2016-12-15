@@ -21,8 +21,12 @@ function config($routeProvider) {
   .when('/login', {
     templateUrl  : 'angular-app/users-login/user-login.html'/*,
     controller   : LoginController,
-    controllerAs : 'vm',
-    access       : { restricted: false }*/
+    controllerAs : 'vm',*/
+  })
+  .when('/newpublication', {
+    templateUrl  : 'angular-app/publication-add/publication-add.html',
+    controller   : publicationAddController,
+    controllerAs : 'puba',
   })
   .when('/newpublication', {
     templateUrl  : 'angular-app/publication-add/publication-add.html',
@@ -32,11 +36,10 @@ function config($routeProvider) {
   .when('/public', {
     templateUrl  : 'angular-app/main/main.html'/*,
     controller   : LoginController,
-    controllerAs : 'vm',
-    access       : { restricted: false }*/
+    controllerAs : 'vm',*/
   })
   .otherwise({
-    redirectTo   :'/'
+    redirectTo   : '/'
   });
 }
 

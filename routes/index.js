@@ -26,6 +26,11 @@ router
   .route('/newpublication')
   .post(ctrlPublications.publicationAddOne);
 
+router
+  .route('/ressources')
+  .get(ctrlPublications.publicationsGetAll);
+
+
 module.exports = router;
 
 

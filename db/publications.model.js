@@ -1,35 +1,35 @@
 var mongoose = require('mongoose');
 
 var Publication = new mongoose.Schema({
-  titrePublication  : {
+  titrePublication : {
     type     : String,
     required : false
   },
-  textePublication   : {
+  textePublication : {
     type     : String,
     required : false
   },
-  nbLikes      : {
-    type     : Number,
+  nbLikes : {
+    type : String,
     required : false
   },
-  listeCommentaires      : {
+  listeCommentaires : {
+    type : String,
+    required : false
+  },
+  pouceLeveJaime : {
     type     : String,
     required : false
   },
-  pouceLeveJaime      : {
-    type     : Number,
+  titreNouveauMessage : {
+    type     : String,
     required : false
   },
-  titreNouveauMessage   : {
+  nouveauMessage : {
     type     : String,
-    required : true
+    required : false
   },
-  nouveauMessage   : {
-    type     : String,
-    required : true
-  },
-  nouveauCommentaire      : {
+  nouveauCommentaire : {
     type     : String,
     required : false
   }

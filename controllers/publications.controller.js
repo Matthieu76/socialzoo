@@ -114,8 +114,8 @@ module.exports.publicationUpdate = function(req, res) {
 	  	publication.textePublication    = req.body.textePublication;
 	  	publication.nbLikes    			= req.body.nbLikes;
 	  	publication.listeCommentaires   = req.body.listeCommentaires;
-	  	
-	  	publication.pouceLeveJaime   	= req.body.pouceLeveJaime;
+
+        publication.pouceLeveJaime   	= req.body.pouceLeveJaime;
 	  	publication.titreNouveauMessage = req.body.titreNouveauMessage;
 	  	publication.nouveauMessage 		= req.body.nouveauMessage;
 	  	publication.nouveauCommentaire  = req.body.nouveauCommentaire;
