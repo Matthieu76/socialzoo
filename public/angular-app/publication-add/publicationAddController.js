@@ -7,8 +7,6 @@ function publicationAddController($location, publicationsFactory) {
 
   puba.addPublication = function() {
 
-    console.log("ok");
-
     var postData = {
       titrePublication        : puba.titrePublication,
       textePublication        : puba.textePublication,
