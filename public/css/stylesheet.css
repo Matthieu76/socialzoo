@@ -1,9 +1,35 @@
-input#search {
-	height: 64px;
+@font-face {
+    font-family: 'klavika';
+    src: url('../fonts/klavika/klavika.woff2') format('woff2'),
+         url('../fonts/klavika/klavika.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-div#aside {
-	border-right: 1px solid grey;
+body {
+	font-family: roboto;
+}
+
+div.nav-wrapper {
+	background-color: #1E68AA;
+}
+
+a.brand-logo {
+	font-family: klavika;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: klavika;
+}
+
+img#logoBouc {
+	margin : 20px;
+	margin-top : 8px !important;
+	height: 50px;
+}
+
+input#search {
+	height: 64px;
 }
 
 #searchBar
@@ -12,17 +38,8 @@ div#aside {
 	background-color: white;
 }
 
-div#aside {
-	height: 100%;
-	background-color: #fafafa;
-}
-
 div#mainWrapper {
 	margin: 0;
-}
-
-footer.page-footer {
-    margin: 0;
 }
 
 div.littleContainer {
@@ -32,4 +49,15 @@ div.littleContainer {
 
 span.annuaireTitle {
 	font-size: 1.5rem;
+}
+
+a.btn {
+	background-color: #9A9DA2;
+}
+
+/* FOOTER */
+
+footer.page-footer {
+	background-color: #1E68AA;
+	padding: 0;
 }

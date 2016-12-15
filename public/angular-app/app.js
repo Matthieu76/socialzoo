@@ -13,6 +13,11 @@ function config($routeProvider) {
     controller   : zooAddController,
     controllerAs : 'za',
   })
+  .when('/zoos/:id', {
+    templateUrl  : 'angular-app/zoos-display/zoo-display.html'/*,
+    controller   : zooAddController,
+    controllerAs : 'za',*/
+  })
   .when('/public', {
     templateUrl  : 'angular-app/main/main.html'/*,
     controller   : LoginController,

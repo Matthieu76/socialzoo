@@ -12,7 +12,7 @@ router
 
 router
   .route('/newzoo')
-  .get(ctrlZoos.zooAddOne);
+  .post(ctrlZoos.zooAddOne);
 
 // Publications routes
 
