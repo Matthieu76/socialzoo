@@ -18,6 +18,12 @@ function config($routeProvider) {
     controller   : zooDisplayController,
     controllerAs : 'zd',
   })
+  .when('/login', {
+    templateUrl  : 'angular-app/users-login/user-login.html'/*,
+    controller   : LoginController,
+    controllerAs : 'vm',
+    access       : { restricted: false }*/
+  })
   .when('/public', {
     templateUrl  : 'angular-app/main/main.html'/*,
     controller   : LoginController,
