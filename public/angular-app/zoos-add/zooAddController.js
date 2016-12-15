@@ -10,8 +10,10 @@ function zooAddController($location, zoosFactory) {
     var postData = {
       zooName        : za.zooName,
       zooDescription : za.zooDescription,
-      zooLocation    : za.zooLocation,
-      zooLikes       : za.zooLikes
+      zooPostalCode  : za.zooPostalCode,
+      zooCity        : za.zooCity,
+      zooCountry     : za.zooCountry,
+      zooWebsite     : za.zooWebsite
     };
 
     if (za.zooForm.$valid) {

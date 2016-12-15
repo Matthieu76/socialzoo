@@ -9,12 +9,20 @@ var Zoo = new mongoose.Schema({
     type     : String,
     required : false
   },
-  zooLocation : {
+  zooPostalCode : {
     type     : String,
     required : false
   },
-  zooLikes : {
-  	type     : Number,
+  zooCity : {
+    type     : String,
+    required : false
+  },
+  zooCountry : {
+    type     : String,
+    required : false
+  },
+  zooWebsite : {
+  	type     : String,
   	required : false
   }
 });

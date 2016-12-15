@@ -17,17 +17,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12">
-                <input id="zooLocation" type="text" class="validate" ng-model="za.zooLocation" required>
-                <label for="zooLocation">Adresse</label>
+            <div class="input-field col s4">
+                <input id="zooPostalCode" type="text" class="validate" ng-model="za.zooPostalCode" required>
+                <label for="zooPostalCode">Code postal</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="zooCity" type="text" class="validate" ng-model="za.zooCity" required>
+                <label for="zooCity">Ville</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="zooCountry" type="text" class="validate" ng-model="za.zooCountry" required>
+                <label for="zooCountry">Pays</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="zooLikes" type="text" class="validate" ng-model="za.zooLikes" required>
-                <label for="zooLikes">Likes</label>
+                <input id="zooWebsite" type="text" class="validate" ng-model="za.zooWebsite" required>
+                <label for="zooWebsite">Site Web</label>
             </div>
         </div>
+        <br/>
         <div class="row">
             <div class="col s12">
                 <button class="btn waves-effect waves-light right" type="submit">Publier<i class="material-icons right">send</i>

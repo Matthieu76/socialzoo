@@ -14,9 +14,15 @@ function config($routeProvider) {
     controllerAs : 'za',
   })
   .when('/zoos/:id', {
-    templateUrl  : 'angular-app/zoos-display/zoo-display.html'/*,
-    controller   : zooAddController,
-    controllerAs : 'za',*/
+    templateUrl  : 'angular-app/zoos-display/zoo-display.html',
+    controller   : zooDisplayController,
+    controllerAs : 'zd',
+  })
+  .when('/login', {
+    templateUrl  : 'angular-app/users-login/user-login.html'/*,
+    controller   : LoginController,
+    controllerAs : 'vm',
+    access       : { restricted: false }*/
   })
   .when('/newpublication', {
     templateUrl  : 'angular-app/publication-add/publication-add.html',

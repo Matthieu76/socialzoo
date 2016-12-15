@@ -1,4 +1,31 @@
-<div class="container">
-    <h1>Mon Zoo</h1>
+<div id="bckgDisplay" class="z-depth-2">
 </div>
 
+<div class="container">
+
+    <div class="section">
+
+        <a href="#/" class="waves-effect waves-light btn"><i class="material-icons left">replay</i>Retour</a>
+
+        <br/><br/>
+
+        <h1>{{zd.zoo.zooName}}</h1>
+
+        <br/>
+  
+        <p>{{zd.zoo.zooDescription}}</p>
+
+        <br/>
+
+        <p>Adresse : {{zd.zoo.zooPostalCode}} {{zd.zoo.zooCity}}, {{zd.zoo.zooCountry}}</p>
+
+        <br/>
+
+        <p>{{zd.zoo.zooWebsite}}</p>
+
+        <br/>
+
+        <a ng-click="zd.deleteFct()"><i class="material-icons left deleteZoo">delete</i></a>
+
+    </div>
+</div>

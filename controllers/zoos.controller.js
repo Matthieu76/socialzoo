@@ -49,8 +49,10 @@ module.exports.zooAddOne = function(req, res) {
 	  .create({
 	  	zooName        : req.body.zooName,
 	  	zooDescription : req.body.zooDescription,
-	  	zooLocation    : req.body.zooLocation,
-	  	zooLikes       : req.body.zooLikes
+	  	zooPostalCode  : req.body.zooPostalCode,
+	  	zooCity        : req.body.zooCity,
+	  	zooCountry     : req.body.zooCountry,
+	  	zooWebsite     : req.body.zooWebsite
       }, function (err, response){
 	  if (err){
 	    res
@@ -105,8 +107,10 @@ module.exports.zooUpdate = function(req, res) {
 
 	  	zoo.zooName        = req.body.zooName;
 	  	zoo.zooDescription = req.body.zooDescription;
-	  	zoo.zooLocation    = req.body.zooLocation;
-	  	zoo.zooLikes       = req.body.zooLikes;
+	  	zoo.zooPostalCode  = req.body.zooPostalCode;
+	  	zoo.zooCity        = req.body.zooCity;
+	  	zoo.zooCountry     = req.body.zooCountry;
+	  	zoo.zooWebsite     = req.body.zooWebsite;
 
 	  	zoo
 	  	  .save(function(err, zooUpdate) {
