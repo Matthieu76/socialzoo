@@ -16,10 +16,10 @@
                 <li class="collection-item avatar">
                     <i class="material-icons circle red">pets</i>
                     <span class="title">{{zoo.zooName}}</span>
-                    <p>{{zoo.zooLocation}}<br>
-                    <a><i class="material-icons tiny">favorite</i></a> {{zoo.zooLikes}}
+                    <p>{{zoo.zooPostalCode}} {{zoo.zooCity}}, {{zoo.zooCountry}}<br>
+                    {{zoo.zooWebsite}}
                     </p>
-                    <a ng-href="#zoos/{{ zoo._id }}" class="secondary-content"><i class="material-icons">launch</i></a>
+                    <a ng-href="#zoos/{{ zoo._id }}" class="secondary-content"><i class="material-icons launchIcon">launch</i></a>
                 </li>
             </ul><br/>
             

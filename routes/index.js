@@ -14,6 +14,11 @@ router
   .route('/newzoo')
   .post(ctrlZoos.zooAddOne);
 
+router
+  .route('/zoos/:zooId')
+  .get(ctrlZoos.zooGetOne)
+  .delete(ctrlZoos.zooDelete);
+
 // Publications routes
 
 router

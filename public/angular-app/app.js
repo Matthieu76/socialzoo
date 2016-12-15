@@ -14,9 +14,9 @@ function config($routeProvider) {
     controllerAs : 'za',
   })
   .when('/zoos/:id', {
-    templateUrl  : 'angular-app/zoos-display/zoo-display.html'/*,
-    controller   : zooAddController,
-    controllerAs : 'za',*/
+    templateUrl  : 'angular-app/zoos-display/zoo-display.html',
+    controller   : zooDisplayController,
+    controllerAs : 'zd',
   })
   .when('/public', {
     templateUrl  : 'angular-app/main/main.html'/*,

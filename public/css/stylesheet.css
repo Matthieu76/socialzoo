@@ -7,7 +7,22 @@
 }
 
 body {
-	font-family: roboto;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: roboto;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+header {
+	height: 64px;
+}
+
+a {
+	cursor: pointer;
 }
 
 div.nav-wrapper {
@@ -51,13 +66,34 @@ span.annuaireTitle {
 	font-size: 1.5rem;
 }
 
-a.btn {
+a.btn, button.btn {
 	background-color: #9A9DA2;
+}
+
+a.btn:hover, button.btn:hover {
+	background-color: #1E68AA;
+}
+
+i.launchIcon {
+	color: #1E68AA;
 }
 
 /* FOOTER */
 
 footer.page-footer {
 	background-color: #1E68AA;
+	margin: 0;
 	padding: 0;
+}
+
+/* ZOO DISPLAY */
+
+div#bckgDisplay {
+	background-image: url("../img/leopard.jpg");
+	margin: 0px;
+	height: 200px;
+}
+
+i.deleteZoo {
+	color: #9A9DA2;
 }
