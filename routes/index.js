@@ -8,7 +8,8 @@ var ctrlPublications = require('../controllers/publications.controller.js');
 
 router
   .route('/')
-  .get(ctrlZoos.zooGetAll);
+  .get(ctrlZoos.zooGetAll)
+  .get(ctrlPublications.publicationsGetAll);
 
 router
   .route('/newzoo')
@@ -20,6 +21,10 @@ router
   .delete(ctrlZoos.zooDelete);
 
 // Publications routes
+
+router
+  .route('/newpublication')
+  .post(ctrlPublications.publicationAddOne);
 
 router
   .route('/ressources')

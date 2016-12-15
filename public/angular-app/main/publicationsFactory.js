@@ -10,11 +10,11 @@ function publicationsFactory($http) {
 	};
 
 function publicationsGetAll() {
-	return $http.get("/api/publications").then(complete).catch(error);
+	return $http.get("/api/").then(complete).catch(error);
 }
 
 function publicationAddOne(postData) {
-	return $http.post("/api/publications/add", postData).then(complete).catch(error);
+	return $http.post("/api/newpublication", postData).then(complete).catch(error);
 }
 
 function publicationDelete(id) {
