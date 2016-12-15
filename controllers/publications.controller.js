@@ -46,17 +46,16 @@ module.exports.publicationGetOne = function(req, res) {
 
 module.exports.publicationAddOne = function(req, res) {
 
- // var password = req.body.password;
-
 	Publication
 	  .create({
-	  	titreNouveauMessage : req.body.titreNouveauMessage,
-	  	nouveauMessage 		: req.body.nouveauMessage,
-	  	lastName  			: req.body.lastName,
 	  	titrePublication    : req.body.titrePublication,
 	  	textePublication  	: req.body.textePublication,
-      // password : bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
+	  	nbLikes             : req.body.nbLikes,
+	  	listeCommentaires   : req.body.listeCommentaires,
+
 	  	pouceLeveJaime   	: req.body.pouceLeveJaime,
+	  	titreNouveauMessage : req.body.titreNouveauMessage,
+	  	nouveauMessage 		: req.body.nouveauMessage,
 	  	nouveauCommentaire  : req.body.nouveauCommentaire
       }, function (err, response){
 	  if (err){
@@ -110,12 +109,14 @@ module.exports.publicationUpdate = function(req, res) {
 	  		  return;
 	  	}
 
+        publication.titrePublication 	= req.body.titrePublication;
+        publication.textePublication    = req.body.textePublication;
+        publication.nbLikes             = req.body.nbLikes;
+        publication.listeCommentaires   = req.body.listeCommentaires;
+
+        publication.pouceLeveJaime   	= req.body.pouceLeveJaime;
 	  	publication.titreNouveauMessage = req.body.titreNouveauMessage;
 	  	publication.nouveauMessage 		= req.body.nouveauMessage;
-	  	publication.titrePublication 	= req.body.titrePublication;
-	  	publication.textePublication    = req.body.textePublication;
-	  	publication.password  			= req.body.password;
-	  	publication.pouceLeveJaime   	= req.body.pouceLeveJaime;
 	  	publication.nouveauCommentaire  = req.body.nouveauCommentaire;
 
 	  	publication

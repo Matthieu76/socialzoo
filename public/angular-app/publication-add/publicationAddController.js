@@ -7,11 +7,17 @@ function publicationAddController($location, publicationsFactory) {
 
   puba.addPublication = function() {
 
+    console.log("ok");
+
     var postData = {
       titrePublication        : puba.titrePublication,
       textePublication        : puba.textePublication,
       nbLikes                 : puba.nbLikes,
-      listeCommentaires       : puba.listeCommentaires
+      listeCommentaires       : puba.listeCommentaires,
+      pouceLeveJaime          : puba.pouceLeveJaime,
+      titreNouveauMessage     : puba.titreNouveauMessage,
+      nouveauMessage          : puba.nouveauMessage,
+      nouveauCommentaire      : puba.nouveauCommentaire
     };
 
     if (puba.publicationForm.$valid) {
