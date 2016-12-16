@@ -39,9 +39,15 @@
 			    </div>
 
 			    <ul class="collection" ng-repeat="article in al.articles">
-                    <li class="collection-item"><h5>{{article.articleTitle}}</h5></li>
+                    <li class="collection-item">
+                        <span class="articleTitre">{{article.articleTitle}}</span>
+                        <span class="articleContent right">22/11/2016</span>
+                    </li>
                     <li class="collection-item">{{article.articleText}}</li>
-                    <li class="collection-item">icons...</li>
+                    <li class="collection-item">
+                        <a><i class="material-icons coeur">favorite</i></a>
+                        <a><i class="material-icons chat right">question_answer</i></a>
+                    </li>
                 </ul>
 
 			</div>

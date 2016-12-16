@@ -1,21 +1,24 @@
-<div id="bckgLogin">
+<div id="bckgLogin" ng-controller="userLoginController as ul">
     <div class="container">
         <div class="section">
             <div class="row">
                 <div class="loginWrapper z-depth-2 col s12 m6 l4">
-                    <form>
+                    <form role="login" ng-submit="ul.login()">
                         <br/>
                         <h5>Connexion</h5>
                         <br/>
                         <div class="row">
                             <div class="input-field">
-                                <input placeholder="Identifiant" id="userName" type="text" class="validate">
+                                <input placeholder="Identifiant" id="userName" type="text" class="validate" ng-model="ul.userName">
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field">
-                                <input placeholder="Mot de passe" id="userPassword" type="password" class="validate">
+                                <input placeholder="Mot de passe" id="userPassword" type="password" class="validate" ng-model="ul.userPassword">
                             </div>
+                        </div>
+                        <div class="row">
+                            <p class="avertissement center">Saisie incorrecte</p>
                         </div>
                         <br/>
                         <div class="row center">

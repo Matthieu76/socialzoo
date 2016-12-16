@@ -1,23 +1,18 @@
-angular.module('zooApp').controller('zooDisplayController', zooDisplayController);
+angular.module('zooApp').controller('userLoginController', userLoginController);
 
-function zooDisplayController($location, $route, $routeParams, zoosFactory) {
-  var zd = this;
-  var id = $routeParams.id;
-  zd.zoo = null;
+function userLoginController($location) {
+  var ul = this;
 
-  zoosFactory.zooGetOne(id).then(function(response) {
-    zd.zoo = response.data;
-  });
+  ul.login = function() {
 
-  zd.deleteFct = function() {
-    var zd = this;
-    var id = $routeParams.id;
+    if(ul.userName == "Matthieu" && ul.userPassword == "abcd") {
+    	  $location.path('#/');
+    } else if(ul.userName == "Marc" && ul.userPassword == "abcd") {
+    	  $location.path('#/');
+    } else {
+        
+    }
 
-  	zoosFactory.zooDelete(id, zd.zoo).then(function(response) {
-        zd.zoo = response.data;
-        $location.path('#/');
-  	});
-
-  }
+  };
 
 }

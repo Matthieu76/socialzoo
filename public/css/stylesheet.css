@@ -27,6 +27,7 @@ a {
 
 div.nav-wrapper {
 	background-color: #1E68AA;
+	height: 64px;
 }
 
 a.brand-logo {
@@ -118,4 +119,22 @@ input#userName, input#userPassword {
     border: 1px solid #ababab;
     padding: 5px;
     width: 80%;
+}
+
+span.articleTitre {
+	font-size: 2rem;
+	font-family: klavika;
+}
+
+i.coeur {
+	color: #F44336;
+}
+
+i.chat {
+	color: #1E68AA;
+}
+
+p.avertissement {
+	color: #F44336;
+	font-weight: bold;
 }
