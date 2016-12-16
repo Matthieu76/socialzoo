@@ -28,11 +28,6 @@ function config($routeProvider) {
     controller   : publicationAddController,
     controllerAs : 'puba',
   })
-  .when('/newpublication', {
-    templateUrl  : 'angular-app/publication-add/publication-add.html',
-    controller   : publicationAddController,
-    controllerAs : 'puba',
-  })
   .when('/public', {
     templateUrl  : 'angular-app/main/main.html'/*,
     controller   : LoginController,
