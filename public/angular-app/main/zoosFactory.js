@@ -10,7 +10,7 @@ function zoosFactory($http) {
 	};
 
 function zooGetAll() {
-	return $http.get("/api/").then(complete).catch(error);
+	return $http.get("/api/zoo").then(complete).catch(error);
 }
 
 function zooAddOne(postData) {

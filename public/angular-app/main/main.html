@@ -23,124 +23,39 @@
                 </li>
             </ul><br/>
             
-       <!-- <ul class="collection">
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">pets</i>
-                    <span class="title">ZooParc de Beauval</span>
-                    <p>41110 Saint-Aignan-sur-Cher<br>
-                    <a><i class="material-icons tiny">favorite</i></a> 1311
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">launch</i></a>
-                </li>
-            </ul>
-
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">pets</i>
-                    <span class="title">Zoo de La Palmyre</span>
-                    <p>17570 Les Mathes<br>
-                    <a><i class="material-icons tiny">favorite</i></a> 550
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">launch</i></a>
-                </li>
-            </ul>
-
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">pets</i>
-                    <span class="title">CERZA</span>
-                    <p>14100 Hermival-les-Vaux<br>
-                    <a><i class="material-icons tiny">favorite</i></a> 177
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">launch</i></a>
-                </li>
-            </ul>
-
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">pets</i>
-                    <span class="title">Parc zoologique d'Amnéville</span>
-                    <p>57360 Amnéville<br>
-                    <a><i class="material-icons tiny">favorite</i></a> 448
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">launch</i></a>
-                </li>
-            </ul>
-
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">pets</i>
-                    <span class="title">Zoo de La Flèche</span>
-                    <p>72200 La Flèche<br>
-                    <a><i class="material-icons tiny">favorite</i></a> 891
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">launch</i></a>
-                </li>
-            </ul> -->
-            
         </div>
 
     </div>
 
-	<div class="col s8" id="section" ng-controller="publicationListController as publ">
-		<div class="container">
-			<div class="row">
+	<div class="col s8" id="section" ng-controller="articleListController as al">
 
-				<!--MODAL POUR ECRIRE UN NOUVEAU MESSAGE-->
-				<form class="col s12">
-					<div class="row">
-						<!-- Modal Trigger -->
-						<a class="waves-effect waves-light btn" href="#modal1">Nouveau message</a>
+		<div class="littleContainer">
 
-						<!-- Modal Structure -->
-						<div id="modal1" class="modal">
-							<div class="modal-content">
-								<input placeholder="Entrez le titre de votre message" type="text" name="Titre de votre message">
-								<textarea placeholder="Entrez un message" id="icon_prefix2" class="materialize-textarea" class="validate"></textarea>
-							</div>
-							<div class="modal-footer">
-								<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Publier</a>
-							</div>
-						</div>
-					</div>
-				</form>
+		    <div class="section">
 
-				<!--MESSAGES DEJA ECRITS-->
-				<form class="col s12">
-					<div class="row" ng-repeat="publication in publ.publications">
-						<h2>{{publication.titrePublication}}</h2>
-						<p>{{publication.textePublication}}}</p><br>
-						<div class="col s6"><span><a href=""><i class="material-icons">thumb_up</i>{{publication.nbLikes}}</a></span></div>
-						<div class="col s6"><span><a href=""><i class="material-icons">chat_bubble</i>{{publication.listeCommentaires}}</a></span></div>
-						<textarea placeholder="Entrez un commentaire" id="icon_prefix2" class="materialize-textarea" class="validate"></textarea>
-					</div>
-				</form>
+			    <div class="row">
+			        <a href="#newarticle" class="waves-effect waves-light btn">
+                    <i class="material-icons left">mode_edit</i>Nouvel article</a>
+			    </div>
+
+			    <ul class="collection" ng-repeat="article in al.articles">
+                    <li class="collection-item">
+                        <span class="articleTitre">{{article.articleTitle}}</span>
+                        <span class="articleContent right">22/11/2016</span>
+                    </li>
+                    <li class="collection-item">{{article.articleText}}</li>
+                    <li class="collection-item">
+                        <a><i class="material-icons coeur">favorite</i></a>
+                        <a><i class="material-icons chat right">question_answer</i></a>
+                    </li>
+                </ul>
+
 			</div>
 		</div>
 	</div>
-
 </div>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.collapsible').collapsible();
-		$('#modal1').modal('open');
-		$('#modal1').modal('close');
-		$('.modal').modal({
-	      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-	      opacity: .5, // Opacity of modal background
-	      in_duration: 300, // Transition in duration
-	      out_duration: 200, // Transition out duration
-	      starting_top: '4%', // Starting top style attribute
-	      ending_top: '10%', // Ending top style attribute
-	      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-	      	console.log(modal, trigger);
-	      },
-	      complete: function() { } // Callback for Modal close
-		  }
-		);
-	});
 
-</script>
+
 
 

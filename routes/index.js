@@ -2,14 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 var ctrlZoos = require('../controllers/zoos.controller.js');
-var ctrlPublications = require('../controllers/publications.controller.js');
+var ctrlArticles = require('../controllers/articles.controller.js');
 
 // Zoos routes
 
 router
-  .route('/')
-  .get(ctrlZoos.zooGetAll)
-  .get(ctrlPublications.publicationsGetAll);
+  .route('/zoo')
+  .get(ctrlZoos.zooGetAll);
+
+router
+	.route('/articles')
+	.get(ctrlArticles.articleGetAll);
 
 router
   .route('/newzoo')
@@ -20,12 +23,12 @@ router
   .get(ctrlZoos.zooGetOne)
   .delete(ctrlZoos.zooDelete);
 
+
 // Publications routes
 
 router
-  .route('/newpublication')
-  .post(ctrlPublications.publicationAddOne);
-
+  .route('/newarticle')
+  .post(ctrlArticles.articleAddOne);
 
 module.exports = router;
 
