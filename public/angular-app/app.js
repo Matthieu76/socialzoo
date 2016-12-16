@@ -21,6 +21,9 @@ function config($routeProvider) {
     controller   : 'articleAddController',
     controllerAs : 'aa',
   })
+  .when('/chat', {
+    templateUrl  : 'angular-app/chat/chat.html'
+  })
   .when('/login', {
     templateUrl  : 'angular-app/users-login/user-login.html'/*,
     controller   : LoginController,
